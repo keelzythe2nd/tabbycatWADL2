@@ -1,0 +1,37 @@
+{% extends "tables/base_vue_table.html" %}
+{% load debate_tags i18n %}
+
+{% block page-subnav-sections %}{% endblock %}<!-- No need for searching -->
+
+{% block content %}
+
+  <div class="card-deck">
+
+    {% if pref.public_draw != 'off' or admin_page %}
+      {% include "in_this_round.html" with grammatical_person="3" %}
+    {% endif %} {# pref.public_draw != 'off' or admin_page #}
+
+    {% if pref.public_participants or admin_page %}
+
+      {# Just call it 'name' since this string is also used with teams #}
+      {% blocktrans trimmed with name=adjudicator.name asvar card_title %}
+        About {{ name }}
+      {% endblocktrans %}
+
+      {% include "adjudicator_registration_card.html" %}
+
+    {% endif %} {# pref.public_participants or admin_page #}
+
+  </div>
+
+  {% if pref.feedback_progress or admin_page %}
+    {% include "feedback_progress_panel.html" with participant_name=adjudicator.name %}
+  {% endif %}
+
+  {% if pref.public_results or admin_page %}
+    <div class="mt-md-4">
+      {{ block.super }} {# this is the Vue table, which is populated with previous debates #}
+    </div>
+  {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page-alerts %}
+
+  {% if round %}
+    {% blocktrans trimmed with round_name=round.name asvar message %}
+      The draw for {{ round_name }} has yet to be released.
+    {% endblocktrans %}
+  {% else %}
+    {% trans "The draw for the next round has yet to be released." as message %}
+  {% endif %}
+  {% include "components/alert.html" with type="info" icon="alert-circle" %}
+
+{% endblock %}
