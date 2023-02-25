@@ -24,7 +24,7 @@
     },
     "TAB_DIRECTOR_EMAIL": {
       "description": "Your email address. Tabbycat's developers may need to contact you to help diagnose any unexpected errors.",
-      "value": ""
+      "value": "president@wadl.org"
     },
     "TIME_ZONE": {
       "description": "The time zone name in the IANA tz database for the tournament's location. Examples: America/Los_Angeles, Europe/Dublin, Africa/Johannesburg. You can look up yours in the 'TZ*' column at http://wikipedia.org/wiki/List_of_tz_database_time_zones#List",
@@ -50,6 +50,6 @@
     {"url": "heroku/nodejs"},
     {"url": "heroku/python"}
   ],
-  "stack": "heroku-16",
+  "stack": "heroku-22",
   "success_url": "/start/"
 }
